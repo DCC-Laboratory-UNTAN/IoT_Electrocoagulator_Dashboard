@@ -1,3 +1,7 @@
+import sys
+import os
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import streamlit as st
 from app.config import APP_TITLE, LOGO_PATH, ACTUATORS
 from app.components.sidebar import render_sidebar

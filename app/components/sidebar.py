@@ -24,7 +24,6 @@ def render_sidebar() -> str:
 
     st.sidebar.divider()
 
-    # Disable manual controls in Automatic mode or when system is off
     auto = (mode == "Automatic") or (not st.session_state.system_active)
 
     st.sidebar.write("Manual Actuator Control")

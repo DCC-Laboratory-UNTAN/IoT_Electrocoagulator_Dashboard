@@ -16,7 +16,6 @@ def render_water_quality() -> None:
     tds = DEFAULT_SENSOR_VALUES["tds"]
     # -------------------------------------------
 
-    # Initialize previous values on first run
     for key, val in [
         ("ph_prev", ph),
         ("turbidity_prev", turbidity),
@@ -31,7 +30,6 @@ def render_water_quality() -> None:
     col3.metric("Temperature (°C)", temperature, delta=round(temperature - st.session_state.temperature_prev, 2))
     col4.metric("TDS (ppm)", tds, delta=round(tds - st.session_state.tds_prev, 2))
 
-    # Update previous values
     st.session_state.ph_prev = ph
     st.session_state.turbidity_prev = turbidity
     st.session_state.temperature_prev = temperature
