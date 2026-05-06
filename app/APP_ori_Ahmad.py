@@ -1,4 +1,18 @@
-#py -3.13 -m streamlit run "C:\Users\untan\OneDrive\Desktop\APP.py"
+"""
+LEGACY MAIN APPLICATION MODULE - Electrocoagulator Prototype Monitoring Dashboard
+
+This is the original monolithic Streamlit application. The codebase has been refactored
+into a modular structure in the app/ directory. This file is retained for reference but
+is no longer actively used. See app/main.py for the current implementation.
+
+Original functionality includes:
+- System state monitoring and controls
+- Manual/Automatic mode switching
+- Actuator control toggle switches
+- Water quality sensor data display
+- Emergency stop functionality
+"""
+
 from cProfile import label
 from datetime import datetime
 from turtle import color
@@ -7,7 +21,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-#logo dcc
+# Load and display the application logo
 HORIZONTAL_RED = "logo 1.png"
 st.logo(HORIZONTAL_RED)
 

@@ -1,10 +1,46 @@
+"""
+Sensor Data Component Module
+
+This module displays real-time sensor readings from the electrocoagulator system.
+It provides two main visualization functions:
+
+1. Water Quality Metrics:
+   - pH Level: Acidity/alkalinity (typical range: 0-14)
+   - Turbidity: Water clarity in NTU (Nephelometric Turbidity Units)
+   - Temperature: Water temperature in Celsius
+   - TDS: Total Dissolved Solids in ppm (parts per million)
+
+2. Water Levels:
+   - Four ultrasonic sensors measuring water levels in different tanks
+   - Displayed as percentage filled and distance from sensor
+   - Helps monitor tank capacity and prevent overflow
+
+Note: Currently uses dummy/default values. Integration with actual sensors
+requires replacing DEFAULT_SENSOR_VALUES with a live data source.
+"""
+
 import streamlit as st
 from app.config import SENSOR_MAX_HEIGHT_CM, DEFAULT_SENSOR_VALUES
 from app.utils.styles import apply_metric_style
 
 
 def render_water_quality() -> None:
-    """Display water quality sensor metrics."""
+    """
+    Display water quality metrics with delta (change) indicators.
+    
+    Shows four key water quality parameters:
+    - pH Level: Measures acidity/alkalinity
+    - Turbidity: Indicates water clarity
+    - Temperature: Current water temperature
+    - TDS (Total Dissolved Solids): Concentration of dissolved minerals
+    
+    Each metric displays:
+    - Current value
+    - Delta (change from previous reading) in green if improved, red if worsened
+    - Helps users identify trends in water quality
+    
+    TODO: Replace dummy values with actual sensor data stream integration
+    """
     st.write("Water Quality (Reactor)")
 
     col1, col2, col3, col4 = st.columns(4)
@@ -39,7 +75,23 @@ def render_water_quality() -> None:
 
 
 def render_water_levels() -> None:
-    """Display ultrasonic water level readings as progress bars."""
+    """
+    Display ultrasonic sensor water level readings in four tanks.
+    
+    Converts raw sensor distance readings into percentage-filled display:
+    - Tank labels: Salt Water, Raw Water, Tank Water, Clean Water
+    - Visual representation: Progress bars showing fill percentage
+    - Additional info: Distance from sensor in centimeters
+    
+    Calculation: percentage = (reading / SENSOR_MAX_HEIGHT_CM) * 100
+    
+    This allows users to:
+    - Monitor tank capacity in real-time
+    - Prevent overflow by checking fill levels
+    - Plan refilling or maintenance based on depletion rates
+    
+    TODO: Replace dummy values with actual ultrasonic sensor readings
+    """
     st.write("Water Levels (Ultrasonic)")
 
     coll1, coll2, coll3, coll4 = st.columns(4)

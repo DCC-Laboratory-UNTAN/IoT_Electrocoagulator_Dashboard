@@ -1,6 +1,17 @@
-# ============================================================
-# App-wide configuration and constants
-# ============================================================
+"""
+Configuration Module - Centralized Application Settings
+
+This module defines all application-wide constants, labels, and default values.
+It serves as a single source of truth for:
+- Application title and branding
+- File paths (logo, data storage)
+- Hardware sensor specifications
+- Operation modes and actuator definitions
+- Default sensor values for testing
+
+Benefit: Changes to configuration only need to be made in one place,
+and changes are automatically reflected across all modules.
+"""
 
 APP_TITLE = "Electrocoagulator Prototype Monitoring"
 LOGO_PATH = "assets/logo 1.png"
